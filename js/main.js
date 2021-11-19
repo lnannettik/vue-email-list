@@ -3,7 +3,8 @@ const app = new Vue ({
     el: '#app',
 
     data: {
-        mail : '',
+        // mail : '',
+        mailList : []
     },
 
     created() {
@@ -11,25 +12,34 @@ const app = new Vue ({
     },
 
     methods: {
+
+
+        
         getAPIMail() {
 
-            // console.log(this);
-            // const self = this;
+                mailList = []
 
-            // axios.get('https://flynn.boolean.careers/exercises/api/random/int')
-            // .then(function(result) {
-            //     // console.log(result.data.response)
 
-            //     console.log(this);
+            for(let i = 0; i < 10; i++) {
+                
+                axios.get('https://flynn.boolean.careers/exercises/api/random/mail')
+                
+                .then(function(result) {
+                    
 
-            //     self.number = result.data.response;
-            // })
+                    const mail = result.data.response;
+                    console.log(mail);
 
-            https://flynn.boolean.careers/exercises/api/random/mail
+                    this.mailList.push(mail)
+
+                    console.log(mailList)
+                
+                });
+            }
+        
         }
-    }
+
+    },
 
 
 });
-
-

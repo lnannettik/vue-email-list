@@ -15,7 +15,15 @@
     
     <div id="app">
 
-        <h2>lista di mail : {{ mail }}</h2>
+        <ul>
+            <li v-for="mail in mailList">
+                <p>{{ mail }}</p>
+
+            </li>
+        </ul>
+
+            
+    
 
 
 
